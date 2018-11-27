@@ -6,6 +6,7 @@
 	<home-swiper :bannerList="bannerList">
 	
 	</home-swiper>
+	<home-icons :list="iconList"></home-icons>
 	</div>
 	
 </template>
@@ -14,16 +15,19 @@
 	import axios from 'axios'
 	import HomeHeader from './components/header'
 	import HomeSwiper from './components/swiper'
+	import HomeIcons from './components/icons'
 	export default {
 		name:'Home',
 		components:{
 			HomeHeader,
-			HomeSwiper
+			HomeSwiper,
+			HomeIcons
 		},
 		data () {
 			return {
 				city:'',
-				bannerList:[]	
+				bannerList:[],
+				iconList:[]
 			}
 		},
 		methods:{
@@ -38,6 +42,7 @@
 		   	    	const data =res.data
 		   	    	this.city = data.city
 		   	    	this.bannerList = data.swiperList
+		   	    	this.iconList = data.iconList
 		   	    }
 		   }
 		},

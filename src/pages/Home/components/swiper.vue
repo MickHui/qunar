@@ -2,6 +2,9 @@
 	<div class="wrapper">
 		<swiper :options="swiperOption" v-if="showFirst" >
 			<swiper-slide  v-for="item of bannerList" :key="item.id" >
+				<div>
+					
+				</div>
 				<img class="swiper-img" :src="item.imgUrl"  />
 			</swiper-slide>
 			<div class="swiper-pagination"  slot="pagination"></div>
@@ -19,7 +22,9 @@
 		data () {
 			return {
 				swiperOption:{
-					pagination:".swiper-pagination",
+					pagination:{
+                   	 el: '.swiper-pagination'    
+                   },
 					loop:true,
 			},
 		  }
@@ -28,11 +33,8 @@
 			showFirst () {
 				return this.bannerList.length
 			}
-		}
-		
+		}		
 	}
-	
-	
 </script>
 
 <style lang='stylus' scoped>
