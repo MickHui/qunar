@@ -5,11 +5,11 @@
 	    </div>
 	    <div class="header-city-serch">
 	    	<i class="iconfont serch-icon">&#xe632;</i>
-	           输入城市游玩主题
+	          <input class="header-city-input" type="text" placeholder=" 输入城市游玩主题" />
 	    </div>
 	     <router-link to="/city">
 	     	<div class="header-city-button">
-                           南京
+                   {{this.city}} 
 	    	 <span class="iconfont header-city-icon">&#xe6bd;</span>
 	        </div>
 	     </router-link>
@@ -20,6 +20,9 @@
 <script>
 	export default {
 		name:'HomeHeader',
+		props:{
+			city:String
+		}
 	}
 	
 </script>
@@ -34,20 +37,33 @@
     color:#fff
     .header-back-button
       height:$headerHight
-      width:.42rem
       padding:0 .2rem 
       text-align:center
       .header-back-icon
         font-size:.36rem
    .header-city-serch
      flex:1
+     display:flex
      height:.64rem
      line-height:.64rem
      background:#fff
-     margin:.12rem 0 0 .2rem
+     margin:.12rem 0 0 0
      border-radius:.1rem
      color:#ccc
-     padding-left:.3rem
+     .serch-icon
+       display:block
+       height:.64rem
+       width:.64rem
+       text-align:center
+       float:left
+     .header-city-input
+       flex:1
+       height:.64rem
+       line-height:.64rem
+       border-radius:.1rem
+       border:0
+       margin-bottom:.07rem
+       padding:0 .2rem 0 0   
    .header-city-button 
      min-width:1.04rem 
      padding:0 .1rem
