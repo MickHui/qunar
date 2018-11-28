@@ -6,7 +6,12 @@
 	<home-swiper :bannerList="bannerList">
 	
 	</home-swiper>
-	<home-icons :list="iconList"></home-icons>
+	<home-icons :list="iconList">
+		
+	</home-icons>
+	<home-recommend :recommendList="recommendList">
+		
+	</home-recommend>
 	</div>
 	
 </template>
@@ -16,18 +21,21 @@
 	import HomeHeader from './components/header'
 	import HomeSwiper from './components/swiper'
 	import HomeIcons from './components/icons'
+	import HomeRecommend from './components/recommend'
 	export default {
 		name:'Home',
 		components:{
 			HomeHeader,
 			HomeSwiper,
-			HomeIcons
+			HomeIcons,
+			HomeRecommend
 		},
 		data () {
 			return {
 				city:'',
 				bannerList:[],
-				iconList:[]
+				iconList:[],
+				recommendList : []
 			}
 		},
 		methods:{
@@ -43,6 +51,7 @@
 		   	    	this.city = data.city
 		   	    	this.bannerList = data.swiperList
 		   	    	this.iconList = data.iconList
+		   	    	this.recommendList = data.recommendList 
 		   	    }
 		   }
 		},
