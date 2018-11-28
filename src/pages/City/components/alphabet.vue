@@ -1,7 +1,17 @@
 <template>
 	<div>
 		<ul class="alphabet-wrap">
-			<li class="alphabet-wrap-list" v-for="item of letters" :key="item">{{item}}</li>
+			<li class="alphabet-wrap-list" 
+				v-for="item of letters" 
+				:key="item"
+				:ref="item"
+				@click = "handleClick"
+				@touchstart = 'handleTouchStart'
+				@touchmove = 'handleTouchMove'
+				@touchend = 'handleTouchEnd'
+			>
+				{{item}}
+			</li>
 		</ul>
 	</div>	
 </template>
@@ -12,6 +22,16 @@
 		props:{
 			cities:Object
 		},
+		data () {
+			return {
+				touchStart:false,
+				startY:0,
+				timer:null
+			}
+		},
+		update () {
+			startY = this.$ref['A'][0].offsetTop;
+		},
 		computed : {
 			 letters () {
 			 	const letters = [] 
@@ -19,11 +39,33 @@
 			 		letters.push(key)
 			 	}
 			 	return letters
-			 	console.log(letters)
 			 }
-		}	 
-	}
+		},
+		methods:{
+			handleClick (e) {
+				 this.$emit("changeLetters",e.target.innerText)
+			},
+			handleTouchStart () {
+				this.touchStart = true
+			},
+			handleTouchMove (e) {
+			   if(this.touchStart){
+			   	   clearTimeout(this.timer)			   	
+			   }
+			   	  this.timer =(()=>{
+			   	  	const touchY = e.touches[0].clientY-79
+			   	  	const index = Math.floor((touchY - this.startY)/20);
+			   	  	if(index >= 0 && index <= this.letters.length){
+			   	  		this.$emit("changeLetters",this.letters[index])
+			   	  	}
+			   	  },16)
 	
+			},
+			handleTouchEnd () {
+				this.touchStart = false
+			}
+	  }
+}	
 </script>
 
 <style lang="stylus" scoped>

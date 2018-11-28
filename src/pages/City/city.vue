@@ -7,9 +7,14 @@
       <city-list 
       	:hotCities="hotCities"
       	:cities = 'cities'
+      	:letter = "letter"
       	
       ></city-list>
-      <city-alphabet :cities = 'cities'></city-alphabet>
+      <city-alphabet 
+      	:cities = 'cities'
+      	@changeLetters = "hangleLettersClick"
+      >
+      </city-alphabet>
 	</div>
 </template>
 
@@ -31,7 +36,8 @@ export default {
 	data ( ) {
 		return {
 		hotCities:[],
-		cities:{}
+		cities:{},
+		letter:''
 		}
 	},
 	methods:{
@@ -45,6 +51,9 @@ export default {
 				this.hotCities = data.hotCities
 			    this.cities = data.cities
 			}
+		},
+		hangleLettersClick (letter) {
+			this.letter = letter
 		}
 	},
 	
