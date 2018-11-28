@@ -8,23 +8,29 @@
 			 	</div>
 			 </div>	
 			 <div class="city-list-title">热门城市 </div>
-			 <div class="city-list-wrap">
-			 	<div class="city-list-detail">
-                    <button class="city-button">北京</button> 
+			 <div class="city-list-wrap" >
+			 	<div class="city-list-detail" v-for="item of hotCities"  :key="item.id">
+                    <button class="city-button">{{item.name}}</button> 
 			 	</div>
-			 
 			 </div>	
-			 <div class="city-list-title">A</div>
-			   <ul>
-			   	  <li class="city-cityList border-bottom">阿拉善</li>
+			 <div class="city-list-title" >
+			   <ul  v-for="(item,key) of cities" :key="key">{{key}}
+			   	  <li class="city-cityList border-bottom" v-for="innerItem of item">{{innerItem.name}}</li>
 			   </ul>
-		</div>
+			</div>   
+		 </div>
 	</div>
 </template>
 
 <script>
 export default {
-	name:"CityList"
+	name:"CityList",
+	props:{
+		hotCities:Array,
+		cities:{
+			type:Object
+		}
+	}
 }
 </script>
 

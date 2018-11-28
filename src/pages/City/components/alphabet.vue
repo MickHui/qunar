@@ -1,21 +1,27 @@
 <template>
 	<div>
 		<ul class="alphabet-wrap">
-			<li class="alphabet-wrap-list">A</li>
-			<li class="alphabet-wrap-list">A</li>
-			<li class="alphabet-wrap-list">A</li>
-			<li class="alphabet-wrap-list">A</li>
-			<li class="alphabet-wrap-list">A</li>
-			<li class="alphabet-wrap-list">A</li>
-			<li class="alphabet-wrap-list">A</li>
-			<li class="alphabet-wrap-list">A</li>
+			<li class="alphabet-wrap-list" v-for="item of letters" :key="item">{{item}}</li>
 		</ul>
 	</div>	
 </template>
 
 <script>
 	export default {
-		name : "CityAlphabet"
+		name : "CityAlphabet",
+		props:{
+			cities:Object
+		},
+		computed : {
+			 letters () {
+			 	const letters = [] 
+			 	for(let key in this.cities){
+			 		letters.push(key)
+			 	}
+			 	return letters
+			 	console.log(letters)
+			 }
+		}	 
 	}
 	
 </script>
