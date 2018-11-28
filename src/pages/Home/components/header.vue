@@ -5,7 +5,7 @@
 	    </div>
 	    <div class="header-city-serch">
 	    	<i class="iconfont serch-icon">&#xe632;</i>
-	          <input class="header-city-input" type="text" placeholder=" 输入城市游玩主题" />
+	          <input class="header-city-input" type="text" placeholder=" 输入城市/游玩/主题" />
 	    </div>
 	     <router-link to="/city">
 	     	<div class="header-city-button">

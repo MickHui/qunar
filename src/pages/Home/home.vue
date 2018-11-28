@@ -58,8 +58,7 @@
 		   	    	this.bannerList = data.swiperList
 		   	    	this.iconList = data.iconList
 		   	    	this.recommendList = data.recommendList 
-		   	    	this.weekendList = data.weekendList
-		   	    	
+		   	    	this.weekendList = data.weekendList	
 		   	    }
 		   }
 		},
