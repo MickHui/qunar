@@ -34,7 +34,9 @@
   justify-content:center
   position:absolute
   right:0
-  width:.6rem
+  bottom:0
+  top:1.58rem
+  width:.4rem
   .alphabet-wrap-list
     line-height:.4rem
     text-align:center

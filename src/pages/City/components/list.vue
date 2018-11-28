@@ -1,28 +1,42 @@
 <template>
-	<div class="city-list">
-		<div class="city-list-item">
-			<div class="city-list-title">当前城市 </div>
-			 <div class="city-list-wrap">
-			 	<div class="city-list-detail">
-                    <button class="city-button">北京</button> 
-			 	</div>
-			 </div>	
-			 <div class="city-list-title">热门城市 </div>
-			 <div class="city-list-wrap" >
-			 	<div class="city-list-detail" v-for="item of hotCities"  :key="item.id">
-                    <button class="city-button">{{item.name}}</button> 
-			 	</div>
-			 </div>	
-			 <div class="city-list-title" >
-			   <ul  v-for="(item,key) of cities" :key="key">{{key}}
-			   	  <li class="city-cityList border-bottom" v-for="innerItem of item">{{innerItem.name}}</li>
-			   </ul>
-			</div>   
-		 </div>
+	<div class="wrapper">
+		<div class="content">
+		  <div class="item">
+		  	 <div class="item-title border-bottom">当前位置</div>
+		  	  <div class="item-list">
+		  	  	 <div class="item-list-wrapper" >
+		  	  	 	<div class="item-city">北京</div>
+		  	  	 </div>  	
+		  	  </div>
+		  </div>
+		  <div class="item">
+		  	 <div class="item-title">热门城市</div>
+		  	   <div class="item-list">
+		  	  	 <div class="item-list-wrapper" v-for="item of hotCities" :key="item.id">
+		  	  	 	<div class="item-city">{{item.name}}</div>
+		  	  	 </div>
+		  	  </div>
+		  </div>
+		  <div class="item" v-for="(item,key) in cities" :key="key">
+		  	 <div class="item-title">{{key}}</div>
+		  	  <ul class="border-bottom" v-for="innerItem of item ">
+		  	  	<li class="item-detail">{{innerItem.name}}</li>
+		  	  </ul>
+		  </div>
+		
+		   
+		  
+		
+		
+		
+		
+		
+		</div>	
 	</div>
 </template>
 
 <script>
+import Bscroll from 'better-scroll'	
 export default {
 	name:"CityList",
 	props:{
@@ -30,45 +44,45 @@ export default {
 		cities:{
 			type:Object
 		}
+	},
+	mounted () {
+		this.scroll = new Bscroll('.wrapper')
 	}
-}
+} 
 </script>
 
 <style lang="stylus" scoped>
-  .city-list
-    overflow:hidden
-    position:absolute
-    top:1.58rem
-    left:0
-    right:0
-    bottom:0 
-	.city-list-title
-	  height:.54rem
-	  line-height:.54rem
-	  background:#eee
-	  padding-left: .2rem
-	  font-size:.26rem
-	  color:#666
-	.city-list-wrap  
-	  overflow:hidden
-	  padding:.1rem .6rem .1rem .2rem
-	  .city-list-detail
-	    width:30%
-	    float:left
-	    margin:.1rem .2rem  .1rem 0
-	    .city-button
-	     padding:.1rem 0
-	     width:100%
-	     background:#fff
-	     border:.02rem solid #ccc
-	     border-radius:.06rem
-	.city-cityList 
-	  line-height:.76rem
-	  padding-left:.2rem
-	  font-size:.32rem
-	     
-  
+.wrapper
+   overflow:hidden
+   position:absolute
+   top:1.58rem
+   right:0
+   left:0
+   bottom:0 
+   .item-title
+     line-height:.54rem
+     background:#eee
+     padding-left:.2rem
+   .item-list
+     overflow:hidden
+     padding:.1rem .6rem .1rem .2rem
+     .item-list-wrapper
+       width:33.33%
+       float:left 
+       .item-city
+         padding:.1rem 0
+         border:.02rem solid #ccc
+         border-radius:.1rem
+         text-align:center
+         margin:.1rem
+	.item-detail
+	   line-height:.72rem
+	   padding-left:.2rem     
+
+	
+		     
+	  
        
-        
+     
    
 </style>
