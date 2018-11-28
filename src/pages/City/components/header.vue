@@ -39,7 +39,7 @@
       font-weight:bolder
   .city-header-title 
     flex:1
-    padding-left:2.4rem
+    padding-left:2.1rem
     font-size:.36rem 
     color:#fff
      
