@@ -12,6 +12,9 @@
 	<home-recommend :recommendList="recommendList">
 		
 	</home-recommend>
+	<home-weeked :weekendList="weekendList">
+		
+	</home-weeked>
 	</div>
 	
 </template>
@@ -22,20 +25,23 @@
 	import HomeSwiper from './components/swiper'
 	import HomeIcons from './components/icons'
 	import HomeRecommend from './components/recommend'
+	import HomeWeeked from './components/weeked'
 	export default {
 		name:'Home',
 		components:{
 			HomeHeader,
 			HomeSwiper,
 			HomeIcons,
-			HomeRecommend
+			HomeRecommend,
+			HomeWeeked
 		},
 		data () {
 			return {
 				city:'',
 				bannerList:[],
 				iconList:[],
-				recommendList : []
+				recommendList : [],
+				weekendList: []
 			}
 		},
 		methods:{
@@ -52,6 +58,8 @@
 		   	    	this.bannerList = data.swiperList
 		   	    	this.iconList = data.iconList
 		   	    	this.recommendList = data.recommendList 
+		   	    	this.weekendList = data.weekendList
+		   	    	
 		   	    }
 		   }
 		},
