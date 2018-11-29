@@ -1,19 +1,45 @@
 <template>
 	<div class="wrapper">
-	    <div class="banner">
+	    <div class="banner" @click="handleShowBanner">
 	         <img class="banner-img" src=" http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg"  />
 	         <div class="banner-infor">
 	         	<div class="banner-num"><i class="iconfont banner-icon">&#xe631;</i>39</div>
 	         	<p class="banner-title">大连圣亚海洋世界(AAAA景区)</p>
 	         </div>
-	    </div>	
+	    </div>
+       <gallary 
+       	v-show="showSwiper"
+       	@close = 'handleCloseBanner'
+       	
+       >
+       	   
+       	
+       	
+       </gallary>
 	</div>
 </template>
 
 <script>
-  export default {
-  	name:"DetailBanner"
+import Gallary from 'common/Gallary/gallary'
+export default {
+  name:"DetailBanner",
+  components:{
+  	Gallary
+  },
+  data () {
+  	return {
+  		showSwiper : false
+  	}
+  },
+  methods : {
+  	handleShowBanner () {
+  		this.showSwiper =true
+  	},
+  	handleCloseBanner () {
+  		this.showSwiper =false
+  	},
   }
+}
 </script>
 
 <style lang="stylus" scoped>
