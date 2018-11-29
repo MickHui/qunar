@@ -12,7 +12,7 @@
       ></city-list>
       <city-alphabet 
       	:cities = 'cities'
-      	@changeLetters = "hangleLettersClick"
+      	@change = "hangleLettersClick"
       >
       </city-alphabet>
 	</div>

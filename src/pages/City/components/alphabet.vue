@@ -30,7 +30,7 @@
 			}
 		},
 		update () {
-			startY = this.$ref['A'][0].offsetTop;
+			startY = this.$refs['A'][0].offsetTop
 		},
 		computed : {
 			 letters () {
@@ -47,22 +47,25 @@
 			},
 			handleTouchStart () {
 				this.touchStart = true
+		        console.log(111111111)
 			},
 			handleTouchMove (e) {
-			   if(this.touchStart){
-			   	   clearTimeout(this.timer)			   	
-			   }
-			   	  this.timer =(()=>{
-			   	  	const touchY = e.touches[0].clientY-79
-			   	  	const index = Math.floor((touchY - this.startY)/20);
-			   	  	if(index >= 0 && index <= this.letters.length){
-			   	  		this.$emit("changeLetters",this.letters[index])
-			   	  	}
-			   	  },16)
-	
+			  if(this.touchStart){
+			  	if(this.timer){
+			  		clearTimeout(this.timer)
+			  	}
+			  	this.timer = setTimeout(()=>{
+			  		const touchY = e.touches[0].clientY -79;
+				    const index = Math.floor((touchY-this.startY)/20);
+				    if(index >=0 && index<= this.letters.length){
+				       this.$emit('change',this.letters[index])
+				    }	
+			  	},16)
+			  }
 			},
 			handleTouchEnd () {
 				this.touchStart = false
+				console.log(33333333)
 			}
 	  }
 }	
@@ -78,7 +81,7 @@
   right:0
   bottom:0
   top:1.58rem
-  width:.4rem
+  width:.6rem
   .alphabet-wrap-list
     line-height:.4rem
     text-align:center
