@@ -8,7 +8,7 @@
 				<li class="search-list border-bottom"
 					v-for="item of list"
 					:key="item.id"
-					@click='handleClick(item.name)'
+					@click='changeCity(item.name)'
 				>
 				   {{item.name}}
 				</li>
@@ -62,11 +62,10 @@ export default {
 		}
 	},
 	methods:{
-		handleClick (city) {
-			this.$emit("changeCity",city)
-			this.keyword = city
+		 changeCity (city) {
+			this.$store.dispatch('changeCity',city)
 			this.$router.push('/')
-		}
+		},
 	},
 	mounted () {
 		this.scroll = new Bscroll('.search-content')

@@ -7,11 +7,11 @@
       	:hotCities="hotCities"
       	:cities = 'cities'
       	:letter = "letter"
-      	
-      ></city-list>
+      >
+      </city-list>
       <city-alphabet 
       	:cities = 'cities'
-      	@change = "hangleLettersClick"
+      	@changeLetters = "handleLettersClick"
       >
       </city-alphabet>
 	</div>
@@ -51,7 +51,7 @@ export default {
 			    this.cities = data.cities
 			}
 		},
-		hangleLettersClick (letter) {
+		handleLettersClick (letter) {
 			this.letter = letter
 		}
 	},

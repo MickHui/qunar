@@ -1,6 +1,6 @@
 <template>
 	<div>
-	<home-header :city="city">
+	<home-header >
 	
 	</home-header>
 	<home-swiper :bannerList="bannerList">
@@ -36,8 +36,7 @@
 			HomeWeeked
 		},
 		data () {
-			return {
-				city:'',
+			return {	
 				bannerList:[],
 				iconList:[],
 				recommendList : [],
@@ -54,7 +53,6 @@
 		   	    res = res.data 
 		   	    if(res.ret && res.data){
 		   	    	const data =res.data
-		   	    	this.city = data.city
 		   	    	this.bannerList = data.swiperList
 		   	    	this.iconList = data.iconList
 		   	    	this.recommendList = data.recommendList 
