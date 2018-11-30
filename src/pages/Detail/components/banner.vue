@@ -7,17 +7,20 @@
 	         	<p class="banner-title">{{this.sightName}}</p>
 	         </div>
 	    </div>
-       <gallary 
-       	v-show="showSwiper"
-       	@close = 'handleCloseBanner'
-       	:gallaryImgs="gallaryImgs"
-       >
-       </gallary>
+	      <fade-animation>
+	      	<gallary
+	       	v-show="showSwiper"
+	       	@close = 'handleCloseBanner'
+	       	:gallaryImgs="gallaryImgs"
+	       >
+	       </gallary>
+       </fade-animation>
 	</div>
 </template>
 
 <script>
 import Gallary from 'common/Gallary/gallary'
+import FadeAnimation from 'common/Fade/fadeAnimation'
 export default {
   name:"DetailBanner",
   props:{
@@ -26,7 +29,8 @@ export default {
   	gallaryImgs:Array
   },
   components:{
-  	Gallary
+  	Gallary,
+  	FadeAnimation
   },
   data () {
   	return {
