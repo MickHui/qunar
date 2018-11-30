@@ -12,7 +12,6 @@
        	@close = 'handleCloseBanner'
        	:gallaryImgs="gallaryImgs"
        >
-
        </gallary>
 	</div>
 </template>

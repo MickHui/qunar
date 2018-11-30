@@ -6,23 +6,30 @@
 			:gallaryImgs = 'gallaryImgs'	
 		>
 		</detail-banner>
+		<detail-list
+			     :list="list"
+		>
+		</detail-list>
 	</div>
 </template>
 
 <script>
 import axios from 'axios'	
 import DetailBanner from './components/banner'
+import DetailList from './components/list'
 
 export default{
 	name:'Detail',
 	components:{
-		DetailBanner,	
+		DetailBanner,
+		DetailList
 	},
 	data () {
 		return {
 			sightName:'',
 			bannerImg:'',
-			gallaryImgs:[]
+			gallaryImgs:[],
+			list:[]
 			
 		}
 	},
@@ -37,6 +44,7 @@ export default{
 			 	   this.sightName = data.sightName
 			 	   this.bannerImg = data.bannerImg
 			 	   this.gallaryImgs = data.gallaryImgs
+			 	   this.list = data.categoryList
 			 }
 		}
 	},
