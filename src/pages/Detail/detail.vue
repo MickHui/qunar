@@ -6,10 +6,12 @@
 			:gallaryImgs = 'gallaryImgs'	
 		>
 		</detail-banner>
-		<detail-list
-			     :list="list"
-		>
-		</detail-list>
+	
+	   <detail-header></detail-header>
+			 <div class="content">
+				 <detail-list :list="list"></detail-list>
+			 </div>
+		 
 	</div>
 </template>
 
@@ -17,12 +19,14 @@
 import axios from 'axios'	
 import DetailBanner from './components/banner'
 import DetailList from './components/list'
+import DetailHeader from './components/header'
 
 export default{
 	name:'Detail',
 	components:{
 		DetailBanner,
-		DetailList
+		DetailList,
+		DetailHeader
 	},
 	data () {
 		return {
@@ -54,8 +58,9 @@ export default{
 }
 </script>
 
-<style>
-	
+<style lang="stylus" scoped>
+	.content
+	  height:20rem
 	
 	
 </style>
