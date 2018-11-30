@@ -1,20 +1,18 @@
 <template>
 	<div class="wrapper">
 	    <div class="banner" @click="handleShowBanner">
-	         <img class="banner-img" src=" http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg"  />
+	         <img class="banner-img" :src="bannerImg"  />
 	         <div class="banner-infor">
-	         	<div class="banner-num"><i class="iconfont banner-icon">&#xe631;</i>39</div>
-	         	<p class="banner-title">大连圣亚海洋世界(AAAA景区)</p>
+	         	<div class="banner-num"><i class="iconfont banner-icon">&#xe631;</i>{{this.gallaryImgs.length}}</div>
+	         	<p class="banner-title">{{this.sightName}}</p>
 	         </div>
 	    </div>
        <gallary 
        	v-show="showSwiper"
        	@close = 'handleCloseBanner'
-       	
+       	:gallaryImgs="gallaryImgs"
        >
-       	   
-       	
-       	
+
        </gallary>
 	</div>
 </template>
@@ -23,6 +21,11 @@
 import Gallary from 'common/Gallary/gallary'
 export default {
   name:"DetailBanner",
+  props:{
+  	sightName:String,
+  	bannerImg:String,
+  	gallaryImgs:Array
+  },
   components:{
   	Gallary
   },
